@@ -64,10 +64,6 @@ def genemoji(message):
     fun_log3 = smiles(200)
     bot.reply_to(message, f"generated emoji: {fun_log3}")
 
-@bot.message_handler(commands=["ping"])
-def on_ping(message):
-    bot.reply_to(message, "Still alive and kicking!")
-
 @bot.message_handler(func=lambda message: True)
 def echo_all(message):
     bot.reply_to(message, message.text)
