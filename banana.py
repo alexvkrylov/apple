@@ -1,6 +1,7 @@
 import telebot
 from logic_2 import smiles
-from bot_logic import gen_pass   
+from bot_logic import gen_pass  
+from datetime import datetime 
 # Замени 'TOKEN' на токен твоего бота
 # Этот токен ты получаешь от BotFather, чтобы бот мог работать
 bot = telebot.TeleBot("8304835372:AAH9c1J6nZ3S35UnJwfwlxaYVvWeqYeKCYI")
@@ -20,6 +21,8 @@ text_messages = {
         u'/heh  - repet the word he 5 times !\n'
         u'/heh 7 - repet the word he amount of times tha your number is saing !\n'
         u'/ping  - saing that he is alive that moment !\n'
+        u'/clock - saing what time is it !\n'
+        u'/emojialot - making a huge rondom pack of emoji !\n'
         u'/emoji. - making a rondom pack of emoji !\n',
 }
 
@@ -64,9 +67,19 @@ def genemoji(message):
     fun_log3 = smiles(200)
     bot.reply_to(message, f"generated emoji: {fun_log3}")
 
+
+@bot.message_handler(commands=["clock"])
+def current_time(message):
+    current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    bot.send_message(message.chat.id,f"Текущее время: {current_time}")
+
+
+@bot.message_handler(commands=["ping"])
+def on_ping(message):
+    bot.reply_to(message, "Still alive and kicking!")
+
 @bot.message_handler(func=lambda message: True)
 def echo_all(message):
     bot.reply_to(message, message.text)
-
 
 bot.polling()
