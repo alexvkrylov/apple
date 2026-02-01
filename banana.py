@@ -23,6 +23,15 @@ text_messages = {
         u'/ping  - saing that he is alive that moment !\n'
         u'/clock - saing what time is it !\n'
         u'/emojialot - making a huge rondom pack of emoji !\n'
+        u'/hidrolisk - giving as a picture with hidrolisk !\n'
+        u'/zergling - giving as a picture with zergling !\n'
+        u'/mutalisk - giving as a picture with mutalisk !\n'
+        u'/ultralisk - giving as a picture with ultralisk !\n'
+        u'/roach - giving as a picture with roach !\n'
+        u'/zarazitel - giving as a picture with zarazitel !\n'
+        u'/worker - giving as a picture with worker !\n'
+        u'/nadzeratel - giving as a picture with nadzeratel !\n'
+        u'/surf_host - giving as a picture with surf_host !\n'
         u'/emoji. - making a rondom pack of emoji !\n',
 }
 
@@ -77,6 +86,52 @@ def current_time(message):
 @bot.message_handler(commands=["ping"])
 def on_ping(message):
     bot.reply_to(message, "Still alive and kicking!")
+
+@bot.message_handler(commands=["hidrolisk"])
+def pickdraw(message):
+    with open('images/hydralisk.jpg', 'rb') as f:
+        bot.send_photo(message.chat.id, f)
+
+@bot.message_handler(commands=["zergling"])
+def pickdraw_1(message):
+    with open('images/zergling.jpg', 'rb') as f:
+        bot.send_photo(message.chat.id, f)
+
+@bot.message_handler(commands=["mutalisk"])
+def pickdraw_2(message):
+    with open('images/mutalisk.jpg', 'rb') as f:
+        bot.send_photo(message.chat.id, f)
+
+@bot.message_handler(commands=["ultralisk"])
+def pickdraw_3(message):
+    with open('images/ultralisk.jpg', 'rb') as f:
+        bot.send_photo(message.chat.id, f)
+
+@bot.message_handler(commands=["roach"])
+def pickdraw_4(message):
+    with open('images/roach.png', 'rb') as f:
+        bot.send_photo(message.chat.id, f)
+
+@bot.message_handler(commands=["zarazitel"])
+def pickdraw_5(message):
+    with open('images/zarazitel.png', 'rb') as f:
+        bot.send_photo(message.chat.id, f)
+
+@bot.message_handler(commands=["worker"])
+def pickdraw_6(message):
+    with open('images/worker.png', 'rb') as f:
+        bot.send_photo(message.chat.id, f)
+
+@bot.message_handler(commands=["nadzeratel"])
+def pickdraw_7(message):
+    with open('images/nadzeratel.png', 'rb') as f:
+        bot.send_photo(message.chat.id, f)
+
+@bot.message_handler(commands=["surf_host"])
+def pickdraw_8(message):
+    with open('images/surf_host.png', 'rb') as f:
+        bot.send_photo(message.chat.id, f)
+ 
 
 @bot.message_handler(func=lambda message: True)
 def echo_all(message):
